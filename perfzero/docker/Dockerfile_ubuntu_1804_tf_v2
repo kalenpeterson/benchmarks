@@ -82,10 +82,16 @@ RUN pip install -U scikit-learn
 RUN curl https://raw.githubusercontent.com/tensorflow/models/master/official/requirements.txt > /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
+# Fix broken packages
 RUN pip uninstall keras-nightly -y && \
     pip install tensorflow keras
 
 RUN pip freeze
 
-RUN git clone https://github.com/kalenpeterson/benchmarks.git /benchmarks && \
-    chmod -R 777 /benchmarks
+# Clone in the whole repo
+RUN git clone https://github.com/kalenpeterson/benchmarks.git /benchmarks
+
+# Make the working directory usable by the random user
+RUN chgrp -R 0 /benchmarks && \
+    chmod -R g=u /benchmarks
+
