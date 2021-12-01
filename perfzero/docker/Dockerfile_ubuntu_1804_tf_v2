@@ -86,3 +86,5 @@ RUN pip pip uninstall keras-nightly -y && \
     pip install tensorflow keras
 
 RUN pip freeze
+
+RUN git clone https://github.com/kalenpeterson/benchmarks.git /benchmarks
