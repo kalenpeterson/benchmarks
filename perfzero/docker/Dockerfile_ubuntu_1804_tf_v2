@@ -82,7 +82,7 @@ RUN pip install -U scikit-learn
 RUN curl https://raw.githubusercontent.com/tensorflow/models/master/official/requirements.txt > /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
-RUN pip pip uninstall keras-nightly -y && \
+RUN pip uninstall keras-nightly -y && \
     pip install tensorflow keras
 
 RUN pip freeze
