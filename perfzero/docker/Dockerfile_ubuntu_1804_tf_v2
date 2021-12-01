@@ -87,4 +87,5 @@ RUN pip uninstall keras-nightly -y && \
 
 RUN pip freeze
 
-RUN git clone https://github.com/kalenpeterson/benchmarks.git /benchmarks
+RUN git clone https://github.com/kalenpeterson/benchmarks.git /benchmarks && \
+    chmod -R 777 /benchmarks
