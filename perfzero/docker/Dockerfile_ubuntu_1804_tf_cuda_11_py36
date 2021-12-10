@@ -82,6 +82,10 @@ RUN pip install tf-estimator-nightly
 RUN pip install tensorflow-text-nightly
 RUN pip install psutil
 
+# Fix broken packages
+RUN pip uninstall keras-nightly -y && \
+    pip install tensorflow keras
+    
 # RUN nvidia-smi
 
 RUN nvcc --version
